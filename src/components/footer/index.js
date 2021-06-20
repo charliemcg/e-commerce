@@ -9,8 +9,7 @@ import {ROUTES} from "../../constants";
 
 const year = new Date().getFullYear();
 
-export default function Cart() {
-  return (
+export default () =>(
     <div>
       <div>
         <div>
@@ -71,4 +70,3 @@ export default function Cart() {
       </div>
     </div>
   );
-}
