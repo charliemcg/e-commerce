@@ -8,6 +8,7 @@ import Navbar from "./components/navbar";
 import UnderConstruction from "./components/underConstruction"
 import store from "./store";
 import { Provider } from "react-redux";
+import Home from "./components/home"
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Navbar/>
       <div>
         <Switch>
+        <Route exact path={ROUTES.HOME} component={Home} />
           <Route exact path={ROUTES.PRODUCTS} component={Products} />
               <Route
                 exact
