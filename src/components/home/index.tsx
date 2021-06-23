@@ -5,7 +5,7 @@ import Carousel from "./Carousel";
 export default () => (
     <div>
       <div >
-        <div >{strings.warranty}</div>
+        <div className="text-5xl text-white bg-red-100">{strings.warranty}</div>
       </div>
       <div >
         <Carousel />

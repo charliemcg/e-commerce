@@ -10,6 +10,7 @@ import store from "./store";
 import { Provider } from "react-redux";
 import Home from "./components/home";
 import Cart from "./components/cart";
+import "./styles/output.css";
 
 function App() {
   return (
