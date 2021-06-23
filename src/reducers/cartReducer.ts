@@ -4,7 +4,8 @@ const initialState = {
   cart: [],
 };
 
-export default function (state = initialState, action) {
+//TODO remove any
+export default function (state = initialState, action: any) {
   switch (action.type) {
     case ACTIONS.addToCart:
       return {
@@ -13,7 +14,8 @@ export default function (state = initialState, action) {
       };
     case ACTIONS.removeFromCart:
       state.cart.splice(
-        state.cart.findIndex(function (e) {
+        //TODO remove any
+        state.cart.findIndex(function (e: any) {
           return e._id === action.payload;
         }),
         1

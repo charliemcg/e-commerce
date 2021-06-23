@@ -7,7 +7,8 @@ import iconPhone from "./graphics/phoneIcon.png";
 import iconLocation from "./graphics/locationIcon.png";
 import iconCart from "./graphics/cartIcon.png";
 
- function Navbar(props) {
+//TODO remove any
+ function Navbar(props: any) {
      return(
     <div>
       <div>
@@ -50,8 +51,8 @@ import iconCart from "./graphics/cartIcon.png";
     </div>
   )};
 
-
-const mapStateToProps = (state) => ({
+//TODO don't use any
+const mapStateToProps = (state: any) => ({
   cart: state.cart,
 });
 
