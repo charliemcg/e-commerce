@@ -10,33 +10,55 @@ import { ROUTES } from "../../constants";
 const year = new Date().getFullYear();
 
 export default () => (
-  <div>
-    <div>
-      <div>
+  <div className="flex justify-center align-end bg-yellow-100">
+    <div className="flex justify-around w-4/5">
+      <div className="flex flex-col justify-around align-center m-1">
         <div>
           <div>{strings.addressLineOne}</div>
           <div>{strings.addressLineTwo}</div>
         </div>
         <div>{strings.phone}</div>
       </div>
-      <div>
-        <Link to={ROUTES.UNDER_CONSTRUCTION}>{strings.contactUs}</Link>
-        <Link to={ROUTES.UNDER_CONSTRUCTION}>{strings.careers}</Link>
-        <Link to={ROUTES.UNDER_CONSTRUCTION}>{strings.termsAndConditions}</Link>
+      <div className="flex flex-col justify-around align-center m-1">
+        <Link to={ROUTES.UNDER_CONSTRUCTION} className="m-2">
+          {strings.contactUs}
+        </Link>
+        <Link to={ROUTES.UNDER_CONSTRUCTION} className="m-2">
+          {strings.careers}
+        </Link>
+        <Link to={ROUTES.UNDER_CONSTRUCTION} className="m-2">
+          {strings.termsAndConditions}
+        </Link>
       </div>
-      <div>
-        <div>
+      <div className="flex flex-col justify-around align-center m-1">
+        <div className="flex flex-between align-center">
           <Link to={ROUTES.UNDER_CONSTRUCTION}>
-            <img alt={strings.accessibility.youtube} src={youtube} />
+            <img
+              alt={strings.accessibility.youtube}
+              src={youtube}
+              className="m-2 h-8 w-8"
+            />
           </Link>
           <Link to={ROUTES.UNDER_CONSTRUCTION}>
-            <img alt={strings.accessibility.instagram} src={instagram} />
+            <img
+              alt={strings.accessibility.instagram}
+              src={instagram}
+              className="m-2 h-8 w-8"
+            />
           </Link>
           <Link to={ROUTES.UNDER_CONSTRUCTION}>
-            <img alt={strings.accessibility.facebook} src={facebook} />
+            <img
+              alt={strings.accessibility.facebook}
+              src={facebook}
+              className="m-2 h-8 w-8"
+            />
           </Link>
           <Link to={ROUTES.UNDER_CONSTRUCTION}>
-            <img alt={strings.accessibility.twitter} src={twitter} />
+            <img
+              alt={strings.accessibility.twitter}
+              src={twitter}
+              className="m-2 h-8 w-8"
+            />
           </Link>
         </div>
         <div>
