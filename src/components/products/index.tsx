@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import strap from "../../strap.png";
 
 export default () => {
-  const [color, setColor] = useState("red");
   const [selectedOption, setSelectedOption] = useState("Texture");
+  const [color, setColor] = useState("red");
+  const [texture, setTexture] = useState("Pebbled");
 
   const getButton = (color: string) => (
     <div className="bg-red h-16 w-16">
@@ -38,6 +39,34 @@ export default () => {
         }}
       >
         {display}
+      </div>
+    </div>
+  );
+
+  const getTexture = (option: string) => (
+    <div
+      className="h-40 w-40"
+      onClick={() => setTexture(option)}
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        flexDirection: "column",
+      }}
+    >
+      <div
+        className={`h-28 w-28 bg-black rounded-full`}
+        style={{ borderWidth: option === texture ? 4 : 0 }}
+      />
+      <div
+        style={{
+          fontWeight: "normal",
+          textAlign: "center",
+          lineHeight: 1,
+          fontSize: 12,
+        }}
+      >
+        {option}
       </div>
     </div>
   );
@@ -85,14 +114,22 @@ export default () => {
             <div style={{ textAlign: "center", padding: 10, fontSize: 24 }}>
               Texture
             </div>
-            <select>
-              <option value="Smooth">Smooth</option>
-              <option selected value="Pebbled">
-                Pebbled
-              </option>
-              <option value="Alligator">Alligator</option>
-              <option value="Lizard">Lizard</option>
-            </select>
+            <div>
+              <div
+                className="flex flex-row"
+                style={{ marginTop: 10, justifyContent: "center" }}
+              >
+                {getTexture("Smooth")}
+                {getTexture("Pebbled")}
+              </div>
+              <div
+                className="flex flex-row"
+                style={{ marginTop: 10, justifyContent: "center" }}
+              >
+                {getTexture("Alligator")}
+                {getTexture("Lizard")}
+              </div>
+            </div>
           </div>
         );
       case "Colour":
@@ -128,24 +165,62 @@ export default () => {
             <div style={{ textAlign: "center", padding: 10, fontSize: 24 }}>
               Dimensions
             </div>
-            <div>Lug width</div>
-            <select>
-              <option value="18">18mm</option>
-              <option value="20">20mm</option>
-              <option selected value="22">
-                22mm
-              </option>
-              <option value="24">24mm</option>
-              <option value="26">26mm</option>
-            </select>
-            <div>Strap length</div>
-            <select>
-              <option value="small">Small</option>
-              <option selected value="medium">
-                Medium
-              </option>
-              <option value="large">Large</option>
-            </select>
+            <div
+              style={{
+                flexDirection: "row",
+                display: "flex",
+                height: 50,
+                alignItems: "center",
+                marginTop: 20,
+              }}
+            >
+              <div
+                style={{
+                  flex: 1,
+                  textAlign: "center",
+                }}
+              >
+                Lug width
+              </div>
+              <div style={{ flex: 1 }}>
+                <select style={{ width: 140, color: "black" }}>
+                  <option value="18">18mm</option>
+                  <option value="20">20mm</option>
+                  <option selected value="22">
+                    22mm
+                  </option>
+                  <option value="24">24mm</option>
+                  <option value="26">26mm</option>
+                </select>
+              </div>
+            </div>
+            <div
+              style={{
+                flexDirection: "row",
+                display: "flex",
+                height: 50,
+                alignItems: "center",
+              }}
+            >
+              <div
+                style={{
+                  flex: 1,
+                  textAlign: "center",
+                }}
+              >
+                Strap length
+              </div>
+              <div style={{ flex: 1 }}>
+                <select style={{ width: 140, color: "black" }}>
+                  <option value="small">Small</option>
+                  <option selected value="medium">
+                    Medium
+                  </option>
+                  <option value="large">Large</option>
+                </select>
+              </div>
+            </div>
+            <div>Changes not shown in configurator</div>
           </div>
         );
       case "Monogram":
@@ -221,6 +296,7 @@ export default () => {
               className="text-center text-white font-bold"
               style={{
                 fontSize: option === selectedOption ? 20 : 16,
+                opacity: option === selectedOption ? 1 : 0.7,
               }}
             >
               {option}
