@@ -401,7 +401,7 @@ export default () => {
     <div>
       <div className="grid grid-cols-12" style={{ height: 520 }}>
         <div className="grid col-span-8 justify-center">
-          <img src={strap} className={`object-scale-down h-80 bg-${color}`} />
+          <img src={strap} className={`object-scale-down bg-${color}`} />
         </div>
         <div
           className="grid col-span-4 bg-purple m-5 rounded-3xl"
