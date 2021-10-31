@@ -80,27 +80,22 @@ export default () => {
         {getColor("red", "Cranberry Red")}
         {getColor("blue-500", "Ocean Blue")}
         {getColor("blue-800", "Sapphire Blue")}
+        {getColor("green", "Clover Green")}
       </div>
       <div
         className="flex flex-row"
         style={{ marginTop: 10, justifyContent: "center" }}
       >
-        {getColor("green", "Clover Green")}
         {getColor("yellow-300", "Sunflower Yellow")}
         {getColor("white", "Snow White")}
-      </div>
-      <div
-        className="flex flex-row"
-        style={{ marginTop: 10, justifyContent: "center" }}
-      >
         {getColor("pink", "Flamingo Pink")}
         {getColor("black", "Charcoal Black")}
-        {getColor("yellow-700", "Whiskey Brown")}
       </div>
       <div
         className="flex flex-row"
         style={{ marginTop: 10, justifyContent: "center" }}
       >
+        {getColor("yellow-700", "Whiskey Brown")}
         {getColor("yellow-900", "Chocolate Brown")}
       </div>
     </div>
@@ -220,7 +215,38 @@ export default () => {
                 </select>
               </div>
             </div>
-            <div>Changes not shown in configurator</div>
+            <div
+              style={{
+                height: 300,
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <div
+                style={{
+                  backgroundColor: "#fff0d4",
+                  height: 60,
+                  borderColor: "#ff9100",
+                  borderWidth: 2,
+                  borderRadius: 6,
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  padding: 20,
+                  opacity: 0.9,
+                }}
+              >
+                <div
+                  style={{
+                    color: "#ff9100",
+                    fontWeight: "normal",
+                  }}
+                >
+                  Changes not shown in configurator
+                </div>
+              </div>
+            </div>
           </div>
         );
       case "Monogram":
@@ -229,13 +255,49 @@ export default () => {
             <div style={{ textAlign: "center", padding: 10, fontSize: 24 }}>
               Monogram
             </div>
-            <div>No monogram</div>
-            <div className="flex flex-row justify-center">
-              <div>Text</div>
-              <input type="text" />
+            <div
+              style={{
+                flexDirection: "row",
+                display: "flex",
+                height: 50,
+                alignItems: "center",
+                marginTop: 20,
+              }}
+            >
+              <div
+                style={{
+                  flex: 2,
+                  textAlign: "center",
+                }}
+              >
+                No monogram
+              </div>
+              <div style={{ flex: 1 }}>
+                <input type="checkbox" />
+              </div>
+            </div>
+            <div
+              style={{
+                flexDirection: "row",
+                display: "flex",
+                height: 50,
+                alignItems: "center",
+                marginTop: 20,
+              }}
+            >
+              <div
+                style={{
+                  flex: 1,
+                  textAlign: "center",
+                }}
+              >
+                Text
+              </div>
+              <div style={{ flex: 1 }}>
+                <input type="text" />
+              </div>
             </div>
             <div className="flex flex-row justify-center">
-              <div>Colour</div>
               {getColorPalette()}
             </div>
           </div>
