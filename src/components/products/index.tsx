@@ -5,6 +5,7 @@ export default () => {
   const [selectedOption, setSelectedOption] = useState("Texture");
   const [color, setColor] = useState("red");
   const [texture, setTexture] = useState("Pebbled");
+  const [hardwareType, setHardwareType] = useState("buckle");
 
   const getButton = (color: string) => (
     <div className="bg-red h-16 w-16">
@@ -346,14 +347,50 @@ export default () => {
                 Type
               </div>
               <div style={{ flex: 1, display: "flex", flexDirection: "row" }}>
-                <select style={{ width: 150, color: "black" }}>
-                  <option selected value="buckle">
-                    Buckle
-                  </option>
+                <select
+                  value={hardwareType}
+                  onChange={(data) => setHardwareType(data.target.value)}
+                  style={{ width: 150, color: "black" }}
+                >
+                  <option value="buckle">Buckle</option>
                   <option value="clasp">Clasp</option>
                 </select>
               </div>
             </div>
+            {hardwareType === "clasp" && (
+              <div
+                style={{
+                  height: 250,
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <div
+                  style={{
+                    backgroundColor: "#fff0d4",
+                    height: 60,
+                    borderColor: "#ff9100",
+                    borderWidth: 2,
+                    borderRadius: 6,
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    padding: 20,
+                    opacity: 0.9,
+                  }}
+                >
+                  <div
+                    style={{
+                      color: "#ff9100",
+                      fontWeight: "normal",
+                    }}
+                  >
+                    Clasp not shown in configurator
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         );
     }
