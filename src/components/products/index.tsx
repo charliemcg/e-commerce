@@ -1,25 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect, RefObject } from "react";
 import strap from "../../strap.png";
+import stitching_red from "../../stitching_red.png";
+import stitching_light_blue from "../../stitching_light_blue.png";
+import stitching_dark_blue from "../../stitching_dark_blue.png";
+import stitching_green from "../../stitching_green.png";
+import stitching_yellow from "../../stitching_yellow.png";
+import stitching_black from "../../stitching_black.png";
+import stitching_pink from "../../stitching_pink.png";
+import stitching_white from "../../stitching_white.png";
+import stitching_light_brown from "../../stitching_light_brown.png";
+import stitching_dark_brown from "../../stitching_dark_brown.png";
 
 export default () => {
+  const imgContainerRef = useRef<HTMLDivElement>(null);
   const [selectedOption, setSelectedOption] = useState("Texture");
   const [color, setColor] = useState("red");
   const [texture, setTexture] = useState("Pebbled");
   const [hardwareType, setHardwareType] = useState("buckle");
-
-  const getButton = (color: string) => (
-    <div className="bg-red h-16 w-16">
-      <div
-        className={`h-10 w-10 bg-${color} rounded-full border-b border-black m-2`}
-        onClick={() => setColor(color)}
-      />
-    </div>
-  );
+  const [offsetWidth, setOffsetWidth] = useState(0);
+  const [thread, setThread] = useState("white");
 
   const getColor = (option: string, display: string) => (
     <div
       className="h-26 w-20"
-      onClick={() => setColor(option)}
+      onClick={() => {
+        if (selectedOption === "Thread") {
+          setThread(option);
+        } else {
+          setColor(option);
+        }
+      }}
       style={{
         display: "flex",
         alignItems: "center",
@@ -397,11 +407,50 @@ export default () => {
     return <></>;
   };
 
+  useEffect(() => {
+    console.log(imgContainerRef);
+    if (imgContainerRef.current?.offsetWidth) setOffsetWidth(100);
+  }, [imgContainerRef.current]);
+
+  const getThreadImg = () => {
+    switch (thread) {
+      case "red":
+        return stitching_red;
+      case "blue-500":
+        return stitching_light_blue;
+      case "blue-800":
+        return stitching_dark_blue;
+      case "green":
+        return stitching_green;
+      case "yellow-300":
+        return stitching_yellow;
+      case "white":
+        return stitching_white;
+      case "pink":
+        return stitching_pink;
+      case "black":
+        return stitching_black;
+      case "yellow-700":
+        return stitching_light_brown;
+      case "yellow-900":
+        return stitching_dark_brown;
+    }
+  };
+
   return (
     <div>
       <div className="grid grid-cols-12" style={{ height: 520 }}>
-        <div className="grid col-span-8 justify-center">
+        <div ref={imgContainerRef} className="grid col-span-8 justify-center">
           <img src={strap} className={`object-scale-down bg-${color}`} />
+        </div>
+        <div
+          className="grid col-span-8 justify-center"
+          style={{
+            position: "absolute",
+            width: imgContainerRef.current?.offsetWidth,
+          }}
+        >
+          <img src={getThreadImg()} className={`object-scale-down`} />
         </div>
         <div
           className="grid col-span-4 bg-purple m-5 rounded-3xl"
