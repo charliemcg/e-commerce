@@ -261,7 +261,6 @@ export default () => {
                 display: "flex",
                 height: 50,
                 alignItems: "center",
-                marginTop: 20,
               }}
             >
               <div
@@ -282,7 +281,6 @@ export default () => {
                 display: "flex",
                 height: 50,
                 alignItems: "center",
-                marginTop: 20,
               }}
             >
               <div
@@ -308,16 +306,54 @@ export default () => {
             <div style={{ textAlign: "center", padding: 10, fontSize: 24 }}>
               Hardware
             </div>
-            <div className="text-white">Colour</div>
-            {getButton("gray-200")}
-            {getButton("yellow-300")}
-            <div>Type</div>
-            <select>
-              <option selected value="buckle">
-                Buckle
-              </option>
-              <option value="clasp">Clasp</option>
-            </select>
+            <div
+              style={{
+                flexDirection: "row",
+                display: "flex",
+                height: 50,
+                alignItems: "center",
+                margin: 20,
+              }}
+            >
+              <div
+                style={{
+                  flex: 1,
+                  textAlign: "center",
+                }}
+              >
+                Colour
+              </div>
+              <div style={{ flex: 1, display: "flex", flexDirection: "row" }}>
+                {getColor("gray", "Chrome")}
+                {getColor("yellow-300", "Gold")}
+              </div>
+            </div>
+            <div
+              style={{
+                flexDirection: "row",
+                display: "flex",
+                height: 50,
+                alignItems: "center",
+                margin: 20,
+              }}
+            >
+              <div
+                style={{
+                  flex: 1,
+                  textAlign: "center",
+                }}
+              >
+                Type
+              </div>
+              <div style={{ flex: 1, display: "flex", flexDirection: "row" }}>
+                <select style={{ width: 150, color: "black" }}>
+                  <option selected value="buckle">
+                    Buckle
+                  </option>
+                  <option value="clasp">Clasp</option>
+                </select>
+              </div>
+            </div>
           </div>
         );
     }
