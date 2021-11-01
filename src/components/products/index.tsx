@@ -10,6 +10,16 @@ import stitching_pink from "../../stitching_pink.png";
 import stitching_white from "../../stitching_white.png";
 import stitching_light_brown from "../../stitching_light_brown.png";
 import stitching_dark_brown from "../../stitching_dark_brown.png";
+import edge_red from "../../edge_red.png";
+import edge_light_blue from "../../edge_light_blue.png";
+import edge_dark_blue from "../../edge_dark_blue.png";
+import edge_green from "../../edge_green.png";
+import edge_yellow from "../../edge_yellow.png";
+import edge_black from "../../edge_black.png";
+import edge_pink from "../../edge_pink.png";
+import edge_white from "../../edge_white.png";
+import edge_light_brown from "../../edge_light_brown.png";
+import edge_dark_brown from "../../edge_dark_brown.png";
 
 export default () => {
   const imgContainerRef = useRef<HTMLDivElement>(null);
@@ -19,6 +29,7 @@ export default () => {
   const [hardwareType, setHardwareType] = useState("buckle");
   const [offsetWidth, setOffsetWidth] = useState(0);
   const [thread, setThread] = useState("white");
+  const [edge, setEdge] = useState("black");
 
   const getColor = (option: string, display: string) => (
     <div
@@ -26,6 +37,8 @@ export default () => {
       onClick={() => {
         if (selectedOption === "Thread") {
           setThread(option);
+        } else if (selectedOption === "Edge Paint") {
+          setEdge(option);
         } else {
           setColor(option);
         }
@@ -437,6 +450,31 @@ export default () => {
     }
   };
 
+  const getEdgeImg = () => {
+    switch (edge) {
+      case "red":
+        return edge_red;
+      case "blue-500":
+        return edge_light_blue;
+      case "blue-800":
+        return edge_dark_blue;
+      case "green":
+        return edge_green;
+      case "yellow-300":
+        return edge_yellow;
+      case "white":
+        return edge_white;
+      case "pink":
+        return edge_pink;
+      case "black":
+        return edge_black;
+      case "yellow-700":
+        return edge_light_brown;
+      case "yellow-900":
+        return edge_dark_brown;
+    }
+  };
+
   return (
     <div>
       <div className="grid grid-cols-12" style={{ height: 520 }}>
@@ -451,6 +489,15 @@ export default () => {
           }}
         >
           <img src={getThreadImg()} className={`object-scale-down`} />
+        </div>
+        <div
+          className="grid col-span-8 justify-center"
+          style={{
+            position: "absolute",
+            width: imgContainerRef.current?.offsetWidth,
+          }}
+        >
+          <img src={getEdgeImg()} className={`object-scale-down`} />
         </div>
         <div
           className="grid col-span-4 bg-purple m-5 rounded-3xl"
