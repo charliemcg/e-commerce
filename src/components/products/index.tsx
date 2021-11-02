@@ -21,6 +21,16 @@ import edge_white from "../../edge_white.png";
 import edge_light_brown from "../../edge_light_brown.png";
 import edge_dark_brown from "../../edge_dark_brown.png";
 import blob from "../../blob.png";
+import gator_red from "../../gator_red.png";
+import gator_light_blue from "../../gator_light_blue.png";
+import gator_dark_blue from "../../gator_dark_blue.png";
+import gator_green from "../../gator_green.png";
+import gator_yellow from "../../gator_yellow.png";
+import gator_white from "../../gator_white.png";
+import gator_pink from "../../gator_pink.png";
+import gator_black from "../../gator_black.png";
+import gator_light_brown from "../../gator_light_brown.png";
+import gator_dark_brown from "../../gator_dark_brown.png";
 
 export default () => {
   const imgContainerRef = useRef<HTMLDivElement>(null);
@@ -426,6 +436,31 @@ export default () => {
     if (imgContainerRef.current?.offsetWidth) setOffsetWidth(100);
   }, [imgContainerRef.current]);
 
+  const getColorImg = () => {
+    switch (color) {
+      case "red":
+        return gator_red;
+      case "blue-500":
+        return gator_light_blue;
+      case "blue-800":
+        return gator_dark_blue;
+      case "green":
+        return gator_green;
+      case "yellow-300":
+        return gator_yellow;
+      case "white":
+        return gator_white;
+      case "pink":
+        return gator_pink;
+      case "black":
+        return gator_black;
+      case "yellow-700":
+        return gator_light_brown;
+      case "yellow-900":
+        return gator_dark_brown;
+    }
+  };
+
   const getThreadImg = () => {
     switch (thread) {
       case "red":
@@ -480,7 +515,7 @@ export default () => {
     <div>
       <div className="grid grid-cols-12" style={{ height: 520 }}>
         <div ref={imgContainerRef} className="grid col-span-8 justify-center">
-          <img src={strap} className={`object-scale-down`} />
+          <img src={getColorImg()} className={`object-scale-down`} />
         </div>
         <div
           className="grid col-span-8 justify-center"
