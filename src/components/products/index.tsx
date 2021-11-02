@@ -20,6 +20,7 @@ import edge_pink from "../../edge_pink.png";
 import edge_white from "../../edge_white.png";
 import edge_light_brown from "../../edge_light_brown.png";
 import edge_dark_brown from "../../edge_dark_brown.png";
+import blob from "../../blob.png";
 
 export default () => {
   const imgContainerRef = useRef<HTMLDivElement>(null);
@@ -479,7 +480,18 @@ export default () => {
     <div>
       <div className="grid grid-cols-12" style={{ height: 520 }}>
         <div ref={imgContainerRef} className="grid col-span-8 justify-center">
-          <img src={strap} className={`object-scale-down bg-${color}`} />
+          <img src={strap} className={`object-scale-down`} />
+        </div>
+        <div
+          className="grid col-span-8 justify-center"
+          style={{
+            position: "absolute",
+            width: imgContainerRef.current?.offsetWidth,
+            zIndex: -1,
+            opacity: 0.7,
+          }}
+        >
+          <img src={blob} className={`object-scale-down`} />
         </div>
         <div
           className="grid col-span-8 justify-center"

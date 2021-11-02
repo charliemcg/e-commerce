@@ -10,7 +10,10 @@ import { ROUTES } from "../../constants";
 const year = new Date().getFullYear();
 
 export default () => (
-  <div className="flex justify-center align-end bg-yellow-100">
+  <div
+    className="flex justify-center align-end bg-yellow-100"
+    style={{ backgroundColor: "#ff9f21" }}
+  >
     <div className="flex justify-around w-4/5">
       <div className="flex flex-col justify-around align-center m-1">
         <div>
