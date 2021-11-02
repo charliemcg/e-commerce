@@ -31,11 +31,34 @@ import gator_pink from "../../gator_pink.png";
 import gator_black from "../../gator_black.png";
 import gator_light_brown from "../../gator_light_brown.png";
 import gator_dark_brown from "../../gator_dark_brown.png";
+import texture_alligator from "../../texture_alligator.png";
+import smooth_red from "../../smooth_red.png";
+import smooth_light_blue from "../../smooth_light_blue.png";
+import smooth_dark_blue from "../../smooth_dark_blue.png";
+import smooth_green from "../../smooth_green.png";
+import smooth_yellow from "../../smooth_yellow.png";
+import smooth_white from "../../smooth_white.png";
+import smooth_pink from "../../smooth_pink.png";
+import smooth_black from "../../smooth_black.png";
+import smooth_light_brown from "../../smooth_light_brown.png";
+import smooth_dark_brown from "../../smooth_dark_brown.png";
+import texture_smooth from "../../texture_smooth.png";
+import pebbled_red from "../../pebbled_red.png";
+import pebbled_light_blue from "../../pebbled_light_blue.png";
+import pebbled_dark_blue from "../../pebbled_dark_blue.png";
+import pebbled_green from "../../pebbled_green.png";
+import pebbled_yellow from "../../pebbled_yellow.png";
+import pebbled_white from "../../pebbled_white.png";
+import pebbled_pink from "../../pebbled_pink.png";
+import pebbled_black from "../../pebbled_black.png";
+import pebbled_light_brown from "../../pebbled_light_brown.png";
+import pebbled_dark_brown from "../../pebbled_dark_brown.png";
+import texture_pebbled from "../../texture_pebbled.png";
 
 export default () => {
   const imgContainerRef = useRef<HTMLDivElement>(null);
   const [selectedOption, setSelectedOption] = useState("Texture");
-  const [color, setColor] = useState("red");
+  const [color, setColor] = useState("black");
   const [texture, setTexture] = useState("Pebbled");
   const [hardwareType, setHardwareType] = useState("buckle");
   const [offsetWidth, setOffsetWidth] = useState(0);
@@ -89,8 +112,15 @@ export default () => {
         flexDirection: "column",
       }}
     >
-      <div
-        className={`h-28 w-28 bg-black rounded-full`}
+      <img
+        src={
+          option == "Smooth"
+            ? texture_smooth
+            : option === "Pebbled"
+            ? texture_pebbled
+            : texture_alligator
+        }
+        className="h-28 w-28 bg-black rounded-full"
         style={{ borderWidth: option === texture ? 4 : 0 }}
       />
       <div
@@ -436,7 +466,7 @@ export default () => {
     if (imgContainerRef.current?.offsetWidth) setOffsetWidth(100);
   }, [imgContainerRef.current]);
 
-  const getColorImg = () => {
+  const getAlligator = () => {
     switch (color) {
       case "red":
         return gator_red;
@@ -458,6 +488,67 @@ export default () => {
         return gator_light_brown;
       case "yellow-900":
         return gator_dark_brown;
+    }
+  };
+
+  const getSmooth = () => {
+    switch (color) {
+      case "red":
+        return smooth_red;
+      case "blue-500":
+        return smooth_light_blue;
+      case "blue-800":
+        return smooth_dark_blue;
+      case "green":
+        return smooth_green;
+      case "yellow-300":
+        return smooth_yellow;
+      case "white":
+        return smooth_white;
+      case "pink":
+        return smooth_pink;
+      case "black":
+        return smooth_black;
+      case "yellow-700":
+        return smooth_light_brown;
+      case "yellow-900":
+        return smooth_dark_brown;
+    }
+  };
+
+  const getPebbled = () => {
+    switch (color) {
+      case "red":
+        return pebbled_red;
+      case "blue-500":
+        return pebbled_light_blue;
+      case "blue-800":
+        return pebbled_dark_blue;
+      case "green":
+        return pebbled_green;
+      case "yellow-300":
+        return pebbled_yellow;
+      case "white":
+        return pebbled_white;
+      case "pink":
+        return pebbled_pink;
+      case "black":
+        return pebbled_black;
+      case "yellow-700":
+        return pebbled_light_brown;
+      case "yellow-900":
+        return pebbled_dark_brown;
+    }
+  };
+
+  const getColorImg = () => {
+    switch (texture) {
+      case "Alligator":
+        return getAlligator();
+      case "Smooth":
+        return getSmooth();
+      case "Pebbled":
+        return getPebbled();
     }
   };
 
